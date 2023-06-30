@@ -1,0 +1,155 @@
+ORGANIZATION_BLOCK MAIN:OB1
+TITLE=PROGRAM COMMENTS
+BEGIN
+Network 1 // khoi dong va dung he thong
+// Network Comment
+LD     M0.2
+O      M0.0
+O      I0.0
+AN     M0.3
+AN     I0.1
+=      M0.0
+Network 2 // khai bao thoi gian mac dinh
+LD     SM0.1
+MOVW   30, VW24
+AENO
+MOVW   5, VW26
+AENO
+MOVW   25, VW28
+Network 3 // tinh toan timer
+LD     M0.0
+MOVW   VW24, VW10
+AENO
+*I     +10, VW10
+AENO
+MOVW   VW26, VW12
+AENO
+*I     +10, VW12
+AENO
+MOVW   VW28, VW14
+*I     +10, VW14
+Network 4 // tinh toan tong thoi gian timer
+LD     M0.0
+MOVW   VW10, VW16
+AENO
++I     VW12, VW16
+AENO
+MOVW   VW16, VW18
++I     VW14, VW18
+Network 5 // tinh toan thoi gian den vang va den xanh
+LD     M0.0
+MOVW   VW10, VW20
+AENO
+-I     VW12, VW20
+AENO
+MOVW   VW10, VW22
++I     VW14, VW22
+Network 6 // thuc hien 
+LD     M0.0
+LPS
+AN     T37
+TON    T37, VW18
+LRD
+AW<    T37, VW10
+LPS
+AW>=   T37, VW20
+=      Q0.1
+LPP
+=      Q0.3
+LRD
+AW<    T37, VW20
+=      Q0.2
+LRD
+AW>=   T37, VW10
+LPS
+AW<    T37, VW22
+=      Q0.5
+LPP
+=      Q0.0
+LPP
+AW>=   T37, VW22
+=      Q0.4
+Network 7 // tao xung chu ky 1Hz
+LD     M0.0
+LPS
+AN     T32
+TON    T32, 1000
+LRD
+AW=    T32, 0
+S      M0.4, 1
+LPP
+AW=    T32, 500
+R      M0.4, 1
+Network 8 // gan thoi gian cho bo dem 1
+LD     M0.0
+LPS
+A      Q0.0
+EU
+MOVW   VW24, VW100
+LRD
+A      Q0.1
+EU
+MOVW   VW26, VW100
+LPP
+A      Q0.2
+EU
+MOVW   VW28, VW100
+Network 9 // gan thoi gian cho bo dem 2
+LD     M0.0
+LPS
+A      Q0.3
+EU
+MOVW   VW24, VW102
+LRD
+A      Q0.4
+EU
+MOVW   VW26, VW102
+LPP
+A      Q0.5
+EU
+MOVW   VW28, VW102
+Network 10 // hoat dong bo dem thoi gian 1
+LD     M0.0
+A      M0.4
+EU
+LD     M0.0
+A      Q0.0
+EU
+LD     M0.0
+A      Q0.1
+EU
+OLD
+LD     M0.0
+A      Q0.2
+EU
+OLD
+CTD    C1, VW100
+Network 11 // hoat dong bo dem thoi gian 2
+LD     M0.0
+A      M0.4
+EU
+LD     M0.0
+A      Q0.3
+EU
+LD     M0.0
+A      Q0.4
+EU
+OLD
+LD     M0.0
+A      Q0.5
+EU
+OLD
+CTD    C2, VW102
+END_ORGANIZATION_BLOCK
+SUBROUTINE_BLOCK SBR_0:SBR0
+TITLE=SUBROUTINE COMMENTS
+BEGIN
+Network 1 // Network Title
+// Network Comment
+END_SUBROUTINE_BLOCK
+INTERRUPT_BLOCK INT_0:INT0
+TITLE=INTERRUPT ROUTINE COMMENTS
+BEGIN
+Network 1 // Network Title
+// Network Comment
+END_INTERRUPT_BLOCK

@@ -1,0 +1,144 @@
+ORGANIZATION_BLOCK MAIN:OB1
+TITLE=PROGRAM COMMENTS
+BEGIN
+Network 1 // khoi tao gia tri cho toc do dong co
+LD     SM0.1
+MOVW   50, VW100
+S      M0.6, 1
+Network 2 // khoi dong va dung dong co
+// Network Comment
+LD     M0.0
+O      I0.0
+O      M2.0
+AN     M0.1
+AN     I0.1
+=      M2.0
+Network 3 // tao tin hieu cam bien
+LD     M2.0
+LPS
+AW=    C0, 0
+=      M0.2
+LPP
+AW=    C0, 1000
+=      M0.3
+Network 4 // lap trinh dong co quay
+LD     M2.0
+LPS
+LD     M0.3
+O      M0.4
+ALD
+AN     M0.2
+=      M0.4
+LPP
+LD     M0.2
+O      M0.5
+ALD
+AN     M0.3
+=      M0.5
+Network 5 
+LD     M2.0
+MOVW   VW100, VW98
+/I     +2, VW98
+Network 6 // tao xung cho bo dem
+LD     M2.0
+LPS
+AN     M0.7
+TON    T32, 1000
+LRD
+AW=    T32, 0
+S      M0.6, 1
+LRD
+AW=    T32, VW98
+R      M0.6, 1
+LPP
+AW=    T32, VW100
+=      M0.7
+Network 7 // tao  chuyen dong cho vat tren bang chuyen
+LD     M2.0
+A      M0.6
+A      M0.5
+LD     M2.0
+A      M0.6
+A      M0.4
+LD     M0.1
+O      I0.1
+CTUD   C0, 1000
+Network 8 // hien thi phan tram toc do dong co
+LD     M2.0
+MOVW   +101, VW102
+-I     VW100, VW102
+Network 9 // 5 chu ky quat quay phai
+LD     M2.0
+A      M0.5
+LPS
+AW=    C0, 0
+MOVW   50, VW104
+LRD
+AW=    C0, 200
+MOVW   250, VW104
+LRD
+AW=    C0, 400
+MOVW   450, VW104
+LRD
+AW=    C0, 600
+MOVW   650, VW104
+LPP
+AW=    C0, 800
+MOVW   850, VW104
+Network 10 // 5 chu ky quat quay trai
+LD     M2.0
+A      M0.4
+LPS
+AW=    C0, 1000
+MOVW   800, VW104
+LRD
+AW=    C0, 800
+MOVW   600, VW104
+LRD
+AW=    C0, 600
+MOVW   400, VW104
+LRD
+AW=    C0, 400
+MOVW   200, VW104
+LPP
+AW=    C0, 200
+MOVW   0, VW104
+Network 11 // gan tham so thoi gian
+LD     M2.0
+MOVW   +50, VW106
+AENO
++I     VW104, VW106
+AENO
+MOVW   +50, VW108
+AENO
++I     VW106, VW108
+AENO
+MOVW   +50, VW110
++I     VW108, VW110
+Network 12 // tao chuyen dong cho canh quat
+LD     M2.0
+LPS
+AW>=   C0, VW104
+AW<    C0, VW106
+=      M1.1
+LRD
+AW>=   C0, VW106
+AW<    C0, VW108
+=      M1.2
+LPP
+AW>=   C0, VW108
+AW<    C0, VW110
+=      M1.3
+END_ORGANIZATION_BLOCK
+SUBROUTINE_BLOCK SBR_0:SBR0
+TITLE=SUBROUTINE COMMENTS
+BEGIN
+Network 1 // Network Title
+// Network Comment
+END_SUBROUTINE_BLOCK
+INTERRUPT_BLOCK INT_0:INT0
+TITLE=INTERRUPT ROUTINE COMMENTS
+BEGIN
+Network 1 // Network Title
+// Network Comment
+END_INTERRUPT_BLOCK
